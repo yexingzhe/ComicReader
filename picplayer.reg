@@ -1,0 +1,7 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_CLASSES_ROOT\Directory\shell\ZReadPic]
+@="”√Õ¯“≥ø¥Õº"
+
+[HKEY_CLASSES_ROOT\Directory\shell\ZReadPic\command]
+@="D:\\softs\\readpic\\run.bat %1"

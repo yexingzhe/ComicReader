@@ -1,0 +1,43 @@
+<title>Show Me</title>
+<div id="PIC">
+</div>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript" charset="utf-8" ></script>
+<script>
+var img_arr = [ 'D:\\≤‚ ‘/1359271511037.jpg', 'D:\\≤‚ ‘/1359271642499.jpg', 'D:\\≤‚ ‘/1359271699390.jpg', 'D:\\≤‚ ‘/IMG20121207124016.jpg', 'D:\\≤‚ ‘/IMG20121218223529.jpg', 'D:\\≤‚ ‘/IMG_20111127_111709.jpg', 'D:\\≤‚ ‘/IMG_20111127_205853.jpg', 'D:\\≤‚ ‘/IMG_20111128_074204.jpg', 'D:\\≤‚ ‘/IMG_20111128_074210.jpg', 'D:\\≤‚ ‘/IMG_20111215_180535.jpg', 'D:\\≤‚ ‘/IMG_20111217_121650.jpg', 'D:\\≤‚ ‘/IMG_20111217_155530.jpg', 'D:\\≤‚ ‘/IMG_20111217_155537.jpg', 'D:\\≤‚ ‘/IMG_20111217_155546.jpg', 'D:\\≤‚ ‘/IMG_20111217_155604.jpg', 'D:\\≤‚ ‘/IMG_20111217_155618.jpg', 'D:\\≤‚ ‘/IMG_20111217_160750.jpg', 'D:\\≤‚ ‘/IMG_20120102_184046.jpg', 'D:\\≤‚ ‘/IMG_20120102_184111.jpg', 'D:\\≤‚ ‘/IMG_20120102_200414.jpg' ];
+function GoGet(){
+	$.each(img_arr,function(i,n){
+		addPic(n);
+	});
+}
+function addPic($PATH){
+
+	// var $IMG = document.createElement("img");
+	$IMG = "<img src='"+$PATH+"' /><br>";
+	$("#PIC").append($IMG);
+	// $("#PIC").append($IMG);
+}
+function zoomImg(o) {
+    var zoom = parseInt(o.style.zoom, 10) || 100;
+    zoom += event.wheelDelta / 5; //ÂèØÈÄÇÂêà‰øÆÊîπ
+    if (zoom > 0)
+    o.style.zoom = zoom + '%';
+}
+function resizeImg(o){
+    var per = $(o).height() / $(o).width();
+    $(o).width($(window).width() -100);
+    $(o).height( $(o).width() * per );
+
+}
+$(document).ready(function(){
+	GoGet();
+    // $("img").on("mousewheel",function(){
+    //     zoomImg(this);
+    //     return false;
+    // });
+    $("img").on("load",function(){
+        resizeImg(this);
+        // return false;
+    });
+});
+</script>
+
